@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Lista de tareas</title>
+  <link rel="stylesheet" href="CSS/styles.css" />
+  <script src="JS/app.js" defer></script>
+</head>
+<body>
+  <h1>Lista de tareas</h1>
+  <div class="muted">Agregar, leer, actualizar, eliminar y contar tareas.</div>
+
+  <form id="task-form">
+    <input id="task-input" type="text" placeholder="Escribe una tarea..." required />
+    <button type="submit">Agregar</button>
+  </form>
+
+  <ul id="task-list"></ul>
+
+  <div class="counters">
+    <span class="pill">Completadas: <strong id="done-count">0</strong></span>
+    <span class="pill">Incompletas: <strong id="todo-count">0</strong></span>
+    <span class="pill">Total: <strong id="total-count">0</strong></span>
+  </div>
+</body>
+</html>
