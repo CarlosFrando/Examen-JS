@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Simulación de request con Promise.race</title>
+  <link rel="stylesheet" href="CSS/styles.css" />
+  <script src="JS/app.js" defer></script>
+</head>
+<body>
+  <h1>Simular request con timeout de 12s</h1>
+  <p class="muted">
+    Prueba el comportamiento del servicio y el timeout con <code>Promise.race</code>.
+  </p>
+
+  <form id="form">
+    <label class="row checkbox">
+      <input id="ok" type="checkbox" checked />
+      <span>Servicio disponible (resolve)</span>
+    </label>
+
+    <label class="row">
+      <span>Retardo simulado (ms):</span>
+      <input id="delay" type="number" min="0" step="100" value="2000" />
+    </label>
+
+    <div class="actions">
+      <button type="submit">Probar</button>
+      <button type="button" id="btn-rapida">Demo 13s (timeout)</button>
+    </div>
+  </form>
+
+  <div class="card">
+    <strong>Salida:</strong>
+    <div id="out" class="log">—</div>
+  </div>
+
+  <button class="floating-btn" onclick="location.href='../EA-6/index.html'">Sexto ejercicio avanzado</button>
+
+</body>
+</html>

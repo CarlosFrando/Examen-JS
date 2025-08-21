@@ -1,7 +1,7 @@
-// --- Estado ---
+// Estado 
 let tasks = []; // { id, text, done }
 
-// --- Helpers ---
+// Helpers 
 const uid = () => Math.random().toString(36).slice(2, 9);
 
 function render() {
@@ -31,12 +31,13 @@ function render() {
       t.text = newText || t.text; // evita dejarla vacía
       render();
     });
+
     // Enter termina la edición
     span.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') { e.preventDefault(); span.blur(); }
     });
 
-    // botón de eliminar
+    // botón eliminar
     const del = document.createElement('button');
     del.textContent = 'Eliminar';
     del.addEventListener('click', () => {
@@ -58,7 +59,7 @@ function render() {
   document.getElementById('total-count').textContent = total;
 }
 
-// --- Agregar tarea ---
+// Agregar tarea
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('task-form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -70,10 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
     render();
   });
 
-  // Estado inicial (opcional)
+  // Estado inicial (De ejemplo)
   tasks = [
     { id: uid(), text: 'Repasar JS', done: false },
-    { id: uid(), text: 'Leer documentación', done: true }
+    { id: uid(), text: 'Leer instrucciones', done: true }
   ];
   render();
 });

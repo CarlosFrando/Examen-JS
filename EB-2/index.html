@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Distancia de strings</title>
+  <link rel="stylesheet" href="CSS/styles.css" />
+  <script src="JS/app.js" defer></script>
+</head>
+<body>
+  <h1>Distancia entre los strings</h1>
+  <p class="muted">
+    Compara dos cadenas y devuelve cuántos caracteres son distintas.
+  </p>
+
+  <form id="form">
+    <div class="row">
+      <label for="a">String A</label>
+      <input id="a" type="text" placeholder="Ej: hola" required />
+    </div>
+    <div class="row">
+      <label for="b">String B</label>
+      <input id="b" type="text" placeholder="Ej: holi" required />
+    </div>
+
+    <fieldset class="row row-inline">
+      <label class="checkbox">
+        <input id="flex" type="checkbox" />
+        Usar versión extendida (Solo si la frase o oracion tienen dimenciones distintas)
+      </label>
+      <button type="submit">Calcular</button>
+    </fieldset>
+  </form>
+
+  <div id="out" class="out" aria-live="polite"></div>
+
+  <button class="floating-btn" onclick="location.href='../EI-3/index.html'">Tercer ejercicio intermedio</button>
+
+</body>
+</html>

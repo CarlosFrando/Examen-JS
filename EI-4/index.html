@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>myOwnReduce Playground</title>
+  <link rel="stylesheet" href="CSS/styles.css" />
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <h1>Mi modelo: <code>myOwnReduce</code></h1>
+  <p class="muted">
+    Escribe un arreglo (separado por comas), elige un reductor y (opcional) un valor inicial.
+  </p>
+
+  <form id="form">
+    <label class="row">
+      <span>Arreglo</span>
+      <input id="arr-input" type="text" placeholder="Ej: 1,2,3,4,5" required />
+    </label>
+
+    <label class="row">
+      <span>Reductor (callback)</span>
+      <select id="reducer-select">
+        <option value="sum">Suma (Array + Valor inicial)</option>
+        <option value="product">Multiplicacion (Array * Valor inicial)</option>
+        <option value="max">Máximo</option>
+        <option value="min">Mínimo</option>
+        <option value="concat">Concatenar como texto</option>
+      </select>
+    </label>
+
+    <label class="row">
+      <span>Valor inicial (opcional)</span>
+      <input id="initial-input" type="text" placeholder="ej: 0, 1 o deja vacío" />
+    </label>
+
+    <div class="actions">
+      <button type="submit">Ejecutar</button>
+      <button type="button" id="btn-demo">Demo rápida</button>
+    </div>
+  </form>
+
+  <div class="out">
+    <h2>Resultado</h2>
+    <pre id="result" class="code">—</pre>
+  </div>
+
+  <details class="help">
+    <summary>¿Cómo está implementado <code>myOwnReduce</code> aquí?</summary>
+    <pre class="code small">
+Array.prototype.myOwnReduce = function(callback, initialValue) {
+  if (typeof callback !== "function") {
+    throw new TypeError(callback + " no es una función");
+  }
+  const arr = this;
+  let accumulator, startIndex;
+
+  if (initialValue !== undefined) {
+    accumulator = initialValue;
+    startIndex = 0;
+  } else {
+    if (arr.length === 0) {
+      throw new TypeError("Reduce de array vacío sin valor inicial");
+    }
+    accumulator = arr[0];
+    startIndex = 1;
+  }
+
+  for (let i = startIndex; i &lt; arr.length; i++) {
+    // Nota: firma del callback pedida en el enunciado:
+    // (current, accumulator)
+    accumulator = callback(arr[i], accumulator, i, arr);
+  }
+  return accumulator;
+};
+    </pre>
+  </details>
+
+  <button class="floating-btn" onclick="location.href='../EA-5/index.html'">Quinto ejercicio avanzado</button>
+  
+</body>
+</html>
