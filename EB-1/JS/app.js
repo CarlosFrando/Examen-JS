@@ -36,7 +36,7 @@ function render() {
       if (e.key === 'Enter') { e.preventDefault(); span.blur(); }
     });
 
-    // botón eliminar
+    // botón de eliminar
     const del = document.createElement('button');
     del.textContent = 'Eliminar';
     del.addEventListener('click', () => {
